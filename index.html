@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SimPremium — Projeto</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0B0D12;
+  --s:        #13161E;
+  --s2:       #1C2030;
+  --line:     rgba(255,255,255,0.07);
+  --line2:    rgba(255,255,255,0.12);
+  --ink:      #F0F2F7;
+  --ink2:     #9BA3B8;
+  --muted:    #5A6278;
+  --blue:     #4F7FFF;
+  --blue-b:   rgba(79,127,255,0.1);
+  --teal:     #2DD4BF;
+  --teal-b:   rgba(45,212,191,0.1);
+  --purple:   #A78BFA;
+  --purple-b: rgba(167,139,250,0.1);
+  --green:    #34D399;
+  --green-b:  rgba(52,211,153,0.1);
+  --amber:    #F5A623;
+  --amber-b:  rgba(245,166,35,0.08);
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ── HEADER ─────────────────────────── */
+.header {
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+.brand-name { font-size: 14px; font-weight: 700; }
+.brand-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.header-tag {
+  font-size: 11px; font-weight: 600; color: var(--muted);
+  background: var(--s2); padding: 5px 12px; border-radius: 100px;
+  border: 1px solid var(--line2);
+}
+
+/* ── SECTION LABEL ───────────────────── */
+.section-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.4px; color: var(--muted); margin-bottom: 24px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+/* ── PAGE ────────────────────────────── */
+.page { padding: 40px 48px 80px; }
+
+/* ── PROCESS GRID ────────────────────── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 48px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-1 .stage-card,
+.col-2 .stage-card,
+.col-3 .stage-card,
+.col-4 .stage-card,
+.col-5 .stage-card { flex: 1; }
+
+/* ── STAGE CARD ──────────────────────── */
+.stage-card {
+  background: var(--s);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stage-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.col-1 .stage-card::before { background: var(--blue); }
+.col-2 .stage-card::before { background: var(--teal); }
+.col-3 .stage-card::before { background: var(--purple); }
+.col-4 .stage-card::before { background: var(--green); }
+.col-5 .stage-card::before { background: var(--muted); }
+
+.stage-header { padding: 20px 20px 16px; }
+
+.stage-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.stage-num {
+  font-size: 10px; font-weight: 700;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+.col-1 .stage-num { color: var(--blue); }
+.col-2 .stage-num { color: var(--teal); }
+.col-3 .stage-num { color: var(--purple); }
+.col-4 .stage-num { color: var(--green); }
+.col-5 .stage-num { color: var(--muted); }
+
+.stage-pct { font-size: 11px; font-weight: 700; color: var(--muted); }
+
+.stage-name {
+  font-size: 14px; font-weight: 700; color: var(--ink);
+  margin-bottom: 4px;
+}
+.stage-sub {
+  font-size: 11px; color: var(--muted); line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.stage-bar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.stage-bar-fill { height: 100%; border-radius: 100px; }
+.col-1 .stage-bar-fill { background: var(--blue);   width: 80%; }
+.col-2 .stage-bar-fill { background: var(--teal);   width: 80%; }
+.col-3 .stage-bar-fill { background: var(--purple); width: 60%; }
+.col-4 .stage-bar-fill { background: var(--green);  width: 30%; }
+.col-5 .stage-bar-fill { width: 0%; }
+
+/* ── FILE LIST INSIDE CARD ───────────── */
+.stage-divider { height: 1px; background: var(--line); }
+
+.stage-files { padding: 6px 0; }
+
+.stage-file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.12s;
+  border-bottom: 1px solid var(--line);
+}
+.stage-file:last-child { border-bottom: none; }
+.stage-file:hover { background: var(--s2); }
+
+.sf-body { flex: 1; min-width: 0; }
+.sf-name {
+  font-size: 12px; font-weight: 600; color: var(--ink2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sf-fname {
+  font-size: 9.5px; color: var(--muted);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  margin-top: 2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.sf-badge {
+  font-size: 8.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.4px; padding: 1px 6px; border-radius: 100px;
+  flex-shrink: 0;
+}
+.sf-arrow {
+  font-size: 11px; color: var(--muted); flex-shrink: 0;
+  opacity: 0; transition: opacity 0.12s;
+}
+.stage-file:hover .sf-arrow { opacity: 1; }
+
+/* Empty state */
+.stage-empty {
+  padding: 18px 16px;
+  font-size: 11px; color: var(--muted);
+  font-style: italic;
+}
+
+/* ── APRESENTAÇÃO SECTION ────────────── */
+.apresentacao { margin-bottom: 80px; }
+
+.pres-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 20px;
+  background: var(--s); border: 1px solid var(--line); border-radius: 12px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.file-card:hover {
+  border-color: var(--line2); background: var(--s2);
+  transform: translateX(4px);
+}
+
+.file-body { flex: 1; min-width: 0; }
+.file-name { font-size: 14px; font-weight: 700; color: var(--ink); }
+.file-desc { font-size: 12px; color: var(--ink2); margin-top: 2px; line-height: 1.45; }
+.file-fname {
+  font-size: 10.5px; color: var(--muted);
+  font-family: 'SF Mono', 'Fira Code', monospace; margin-top: 5px;
+}
+
+.file-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+.file-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.6px; padding: 3px 8px; border-radius: 100px;
+}
+.badge-blue { background: var(--blue-b);  color: var(--blue);  border: 1px solid rgba(79,127,255,0.2); }
+.badge-teal { background: var(--teal-b);  color: var(--teal);  border: 1px solid rgba(45,212,191,0.2); }
+
+.file-arrow { font-size: 14px; color: var(--muted); transition: color 0.15s; }
+.file-card:hover .file-arrow { color: var(--ink2); }
+
+.file-card.featured-blue {
+  border-color: rgba(79,127,255,0.2);
+  background: linear-gradient(135deg, var(--s2) 0%, rgba(79,127,255,0.04) 100%);
+  padding: 22px 20px;
+}
+.file-card.featured-blue:hover { border-color: rgba(79,127,255,0.4); }
+.file-card.featured-blue .file-name { font-size: 15px; }
+
+.file-card.featured-teal {
+  border-color: rgba(45,212,191,0.18);
+  background: linear-gradient(135deg, var(--s2) 0%, rgba(45,212,191,0.04) 100%);
+  padding: 22px 20px;
+}
+.file-card.featured-teal:hover { border-color: rgba(45,212,191,0.36); }
+.file-card.featured-teal .file-name { font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <div>
+      <div class="brand-name">SimPremium</div>
+      <div class="brand-sub">Redesign de Checkout · 2026</div>
+    </div>
+  </div>
+  <div class="header-tag">Luca</div>
+</header>
+
+<div class="page">
+
+  <!-- PROCESSO -->
+  <div class="section-label">Processo</div>
+
+  <div class="process-grid">
+
+    <!-- 01 DESCOBERTA -->
+    <div class="col-1">
+      <div class="stage-card">
+        <div class="stage-header">
+          <div class="stage-top">
+            <span class="stage-num">01</span>
+            <span class="stage-pct">80%</span>
+          </div>
+          <div class="stage-name">Descoberta</div>
+          <div class="stage-sub">Contexto de negócio e dores do usuário</div>
+          <div class="stage-bar-track"><div class="stage-bar-fill"></div></div>
+        </div>
+        <div class="stage-divider"></div>
+        <div class="stage-files">
+          <a class="stage-file" href="Introdução.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Análise de Negócio</div>
+              <div class="sf-fname">Introdução.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a class="stage-file" href="jornada-dores.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Dores na Jornada</div>
+              <div class="sf-fname">jornada-dores.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 DEFINIÇÃO -->
+    <div class="col-2">
+      <div class="stage-card">
+        <div class="stage-header">
+          <div class="stage-top">
+            <span class="stage-num">02</span>
+            <span class="stage-pct">80%</span>
+          </div>
+          <div class="stage-name">Definição</div>
+          <div class="stage-sub">Diagnóstico do checkout e perfis de compra</div>
+          <div class="stage-bar-track"><div class="stage-bar-fill"></div></div>
+        </div>
+        <div class="stage-divider"></div>
+        <div class="stage-files">
+          <a class="stage-file" href="simpremium-analise-estrategia.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Análise e Estratégia</div>
+              <div class="sf-fname">simpremium-analise-estrategia.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a class="stage-file" href="simpremium-jtbd.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Jobs to Be Done</div>
+              <div class="sf-fname">simpremium-jtbd.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 IDEAÇÃO -->
+    <div class="col-3">
+      <div class="stage-card">
+        <div class="stage-header">
+          <div class="stage-top">
+            <span class="stage-num">03</span>
+            <span class="stage-pct">60%</span>
+          </div>
+          <div class="stage-name">Ideação</div>
+          <div class="stage-sub">Referências de mercado e priorização</div>
+          <div class="stage-bar-track"><div class="stage-bar-fill"></div></div>
+        </div>
+        <div class="stage-divider"></div>
+        <div class="stage-files">
+          <a class="stage-file" href="benchmarking-competitivo.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Benchmarking Competitivo</div>
+              <div class="sf-fname">benchmarking-competitivo.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a class="stage-file" href="simpremium-moscow.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Escopo MoSCoW</div>
+              <div class="sf-fname">simpremium-moscow.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 PROTOTIPAGEM -->
+    <div class="col-4">
+      <div class="stage-card">
+        <div class="stage-header">
+          <div class="stage-top">
+            <span class="stage-num">04</span>
+            <span class="stage-pct">30%</span>
+          </div>
+          <div class="stage-name">Prototipagem</div>
+          <div class="stage-sub">Wireframe navegável e spec técnica</div>
+          <div class="stage-bar-track"><div class="stage-bar-fill"></div></div>
+        </div>
+        <div class="stage-divider"></div>
+        <div class="stage-files">
+          <a class="stage-file" href="checkout-wireframe.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Wireframe Interativo</div>
+              <div class="sf-fname">checkout-wireframe.html</div>
+            </div>
+            <span class="sf-badge badge-teal">Interativo</span>
+            <span class="sf-arrow">→</span>
+          </a>
+          <a class="stage-file" href="checkout-blueprint.html" target="_blank">
+            <div class="sf-body">
+              <div class="sf-name">Checkout Blueprint</div>
+              <div class="sf-fname">checkout-blueprint.html</div>
+            </div>
+            <span class="sf-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 ENTREGA -->
+    <div class="col-5">
+      <div class="stage-card">
+        <div class="stage-header">
+          <div class="stage-top">
+            <span class="stage-num">05</span>
+            <span class="stage-pct">0%</span>
+          </div>
+          <div class="stage-name">Entrega</div>
+          <div class="stage-sub">Entrega final do artefato</div>
+          <div class="stage-bar-track"><div class="stage-bar-fill"></div></div>
+        </div>
+        <div class="stage-divider"></div>
+        <div class="stage-empty">A definir</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- APRESENTAÇÃO -->
+  <div class="section-label">Apresentação</div>
+
+  <div class="apresentacao">
+    <div class="pres-grid">
+
+      <a class="file-card featured-blue" href="simpremium-deck.html" target="_blank">
+        <div class="file-body">
+          <div class="file-name">Da Pesquisa ao Wireframe</div>
+          <div class="file-desc">O documento principal. Contexto, diagnóstico, pesquisa, benchmarking, priorização e decisões de design — em sequência. Termina no wireframe.</div>
+          <div class="file-fname">simpremium-deck.html</div>
+        </div>
+        <div class="file-right">
+          <span class="file-badge badge-blue">Deck</span>
+          <span class="file-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="file-card featured-teal" href="checkout-wireframe.html" target="_blank">
+        <div class="file-body">
+          <div class="file-name">Wireframe Interativo</div>
+          <div class="file-desc">8 etapas navegáveis. Quiz com recomendação calculada, Plano B direto, resumo com transparência de custo.</div>
+          <div class="file-fname">checkout-wireframe.html</div>
+        </div>
+        <div class="file-right">
+          <span class="file-badge badge-teal">Interativo</span>
+          <span class="file-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="file-card" href="checkout-rationale.html" target="_blank">
+        <div class="file-body">
+          <div class="file-name">Decisões e Origens</div>
+          <div class="file-desc">Cada elemento do wireframe rastreado até sua evidência.</div>
+          <div class="file-fname">checkout-rationale.html</div>
+        </div>
+        <div class="file-right">
+          <span class="file-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

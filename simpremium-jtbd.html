@@ -140,7 +140,7 @@
     border-radius: 0 6px 6px 0;
     font-style: italic;
   }
-  .step-pensamento::before { content: "💭 "; }
+  .step-pensamento::before { content: ""; }
 
   /* DORES */
   .fase-header {
@@ -412,7 +412,7 @@
     <h2>O que ele precisa fazer, como quer se sentir e o que quer projetar</h2>
     <div class="jobs-grid">
       <div class="job-item funcional">
-        <div class="job-type">⚙️ Funcional</div>
+        <div class="job-type">Funcional</div>
         <ul>
           <li>Manter WhatsApp com número BR</li>
           <li>Usar Google Maps no destino</li>
@@ -424,7 +424,7 @@
         </ul>
       </div>
       <div class="job-item emocional">
-        <div class="job-type">❤️ Emocional</div>
+        <div class="job-type">Emocional</div>
         <ul>
           <li>Seguro — não ficar perdido sem comunicação</li>
           <li>Tranquilo — sem medo de conta absurda</li>
@@ -434,7 +434,7 @@
         </ul>
       </div>
       <div class="job-item social">
-        <div class="job-type">👥 Social</div>
+        <div class="job-type">Social</div>
         <ul>
           <li>Ser o "que resolveu tudo" no grupo</li>
           <li>Indicar o chip certo para outros</li>
@@ -447,7 +447,7 @@
     <br>
     <div class="forcas-grid">
       <div class="forca-card">
-        <h4>🚀 O que empurra pra comprar (Push)</h4>
+        <h4>O que empurra pra comprar (Push)</h4>
         <ul>
           <li>Memória ruim com roaming caro em viagem anterior</li>
           <li>Medo de ficar perdido sem comunicação no exterior</li>
@@ -456,7 +456,7 @@
         </ul>
       </div>
       <div class="forca-card">
-        <h4>🧱 O que trava a decisão (Friction)</h4>
+        <h4>O que trava a decisão (Friction)</h4>
         <ul>
           <li>"Vai funcionar de verdade?" — desconfiança legítima</li>
           <li>Chip físico ou eSIM? Não sabe a diferença</li>
@@ -466,7 +466,7 @@
         </ul>
       </div>
       <div class="forca-card">
-        <h4>💤 O que ele faz hoje em vez de comprar (Inertia)</h4>
+        <h4>O que ele faz hoje em vez de comprar (Inertia)</h4>
         <ul>
           <li>"Vou usar o Wi-Fi do hotel"</li>
           <li>"Vou pagar o roaming da minha operadora mesmo"</li>
@@ -474,7 +474,7 @@
         </ul>
       </div>
       <div class="forca-card">
-        <h4>✨ O que atrai pro produto (Pull)</h4>
+        <h4>O que atrai pro produto (Pull)</h4>
         <ul>
           <li>Suporte 24h em português — alguém real pra ajudar</li>
           <li>WhatsApp mantém o número brasileiro</li>
@@ -505,7 +505,7 @@
       <div class="dor-body">
         <p class="dor-desc">O site abre com dados técnicos — cobertura, velocidade, tipo de chip. Isso vem antes de responder a pergunta que tá na cabeça de quem acabou de chegar: "vou ficar conectado de verdade? E o meu WhatsApp?" A homepage tem bons elementos, mas a hierarquia tá errada — o emocional precisa vir primeiro.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>O hero precisa espelhar o pensamento do usuário antes de listar features: <em>"Vai viajar e não quer depender de Wi-Fi de hotel nem pagar roaming absurdo?"</em> — daí sim os atributos técnicos entram como prova.</p>
         </div>
       </div>
@@ -519,7 +519,7 @@
       <div class="dor-body">
         <p class="dor-desc">O usuário digita o destino, vê o preço mínimo — e não sabe o que aquele número significa. É por dia? Por viagem inteira? É o mais barato possível? Não tem contexto. Um número sem referência não ajuda a decidir, trava.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>Ou coloca o contexto junto — <em>"pra 7 dias, a partir de USD X"</em> — ou pede a data antes de mostrar o preço. Com a data em mãos, o número vira real pra situação daquele usuário específico.</p>
         </div>
       </div>
@@ -539,7 +539,7 @@
       <div class="dor-body">
         <p class="dor-desc">O campo aceita texto mas não processa data digitada — só funciona com clique no calendário. Se o usuário digitar qualquer coisa, o sistema retorna "Nenhum plano encontrado". Ele lê isso como "não tem cobertura pro meu destino" e abandona. É um falso negativo no primeiro passo do configurador — o abandono mais evitável da plataforma.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>Bloquear digitação e forçar o calendário com feedback claro — ou aceitar o input e fazer o parse. Micro-copy resolve metade do problema: <em>"Clique pra abrir o calendário."</em> Mudança pequena, impacto direto na taxa de configuração concluída.</p>
         </div>
       </div>
@@ -553,7 +553,7 @@
       <div class="dor-body">
         <p class="dor-desc">Testado: "EUA" → não encontra. "Estados Unidos" → não encontra. "USA" → não encontra. Só "Estados" funciona. Usuário que digita qualquer variação natural conclui que não tem cobertura — e vai pro concorrente. Isso tá acontecendo agora, com usuários reais.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>Busca fuzzy com aliases pras siglas mais comuns: EUA, USA, UK, UAE, BR. Mais sugestões de destinos populares logo abaixo do campo vazio. É uma mudança de código pequena com impacto direto em conversão.</p>
         </div>
       </div>
@@ -567,7 +567,7 @@
       <div class="dor-body">
         <p class="dor-desc">O usuário se depara com três categorias de plano e o termo "franquia" aparece em dois deles. Ele não sabe a diferença. O detalhe mais crítico: a franquia diária cai pra 128kbps depois do limite — na prática, inutilizável. Isso não tá escrito no card. O usuário compra pensando que tem 1GB por dia e fica sem internet à tarde.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>Renomear pra linguagem simples: <em>"Internet sem limite"</em>, <em>"Por dia"</em>, <em>"Pacote fixo"</em>. No card do plano diário, uma linha de aviso: <em>"Após X GB/dia, velocidade reduzida — muito lento."</em> No pacote fixo: <em>"Ideal pra X dias de uso moderado."</em></p>
         </div>
       </div>
@@ -581,7 +581,7 @@
       <div class="dor-body">
         <p class="dor-desc">O usuário vê "1GB/dia" ou "5GB total" e não tem nenhuma âncora de consumo real pra comparar. A pergunta que passa pela cabeça: "1GB por dia dá pra tudo que eu uso?" Como não sabe, vai no ilimitado por segurança — mais caro. E quando descobre a política de fair use (dor 2.5), pode ter exatamente a experiência que queria evitar.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
+          <div class="sol-label">O que mudar</div>
           <p>Mini-quiz de 3 perguntas antes dos planos: <em>"Quantos dias? / Como vai usar — só WhatsApp e Maps, redes sociais, ou streaming? / Vai trabalhar remotamente?"</em> → recomenda um plano com justificativa: <em>"Pra 10 dias com uso moderado, 5GB é suficiente. Você economiza USD 10."</em></p>
         </div>
       </div>
@@ -595,8 +595,8 @@
       <div class="dor-body">
         <p class="dor-desc">O plano ilimitado proíbe backup automático por dados móveis — iCloud, Google Fotos. Se o usuário não desativar, o iPhone começa a fazer backup ao conectar, consome dados em minutos e o chip trava. Isso acontece na chegada ao destino — o momento de maior estresse. A instrução existe, mas tá numa página separada em texto miúdo. Ninguém vai ler. O suporte 24/7 existe em parte pra resolver exatamente isso.</p>
         <div class="solucao-box">
-          <div class="sol-label">✦ O que mudar</div>
-          <p>Checkbox obrigatório no checkout dos planos ilimitados com instrução visual e link pro tutorial em vídeo: <em>"⚠️ Antes de usar, desative o backup automático por dados móveis. Se não fizer, seu chip pode ser bloqueado."</em> Transparência aqui aumenta confiança — não reduz conversão.</p>
+          <div class="sol-label">O que mudar</div>
+          <p>Checkbox obrigatório no checkout dos planos ilimitados com instrução visual e link pro tutorial em vídeo: <em>"Atenção: Antes de usar, desative o backup automático por dados móveis. Se não fizer, seu chip pode ser bloqueado."</em> Transparência aqui aumenta confiança — não reduz conversão.</p>
         </div>
       </div>
     </div>
